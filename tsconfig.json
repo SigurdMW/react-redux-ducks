@@ -1,17 +1,23 @@
 {
 	"compilerOptions": {
 		"target": "es5",
-		"module": "esnext",
+		"module": "commonjs",
 		"jsx": "react",
-		"lib": ["dom", "es2018"],
+		"lib": ["dom", "es6"],
 		"moduleResolution": "node",
 		"allowJs": true,
 		"strict": true,
+		"rootDir": "src",
 		"downlevelIteration": true,
 		"experimentalDecorators": true,
 		"allowSyntheticDefaultImports": true,
 		"esModuleInterop": true,
 		"emitDecoratorMetadata": true,
 		"sourceMap": true
-	}
+	},
+	"exclude": [
+		"node_modules",
+		"dist",
+		"jest"
+	]
 }
