@@ -1,8 +1,8 @@
-import { IToDo } from "./ITodo"
+import { ITodo } from "./ITodo"
 
 export interface ITodoState {
 	byId: {
-		[key: string]: IToDo
+		[key: string]: ITodo
 	},
 	isLoading: boolean
 }

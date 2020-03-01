@@ -26,6 +26,7 @@
     "typescript": "^3.8.3"
   },
   "dependencies": {
+    "features": "^0.1.0",
     "lodash": "^3.10.1",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
@@ -35,7 +36,7 @@
     "redux-thunk": "^2.3.0"
   },
   "alias": {
-	"interfaces": "./src/interfaces",
-	"ducks": "./src/ducks"
+    "interfaces": "./src/interfaces",
+    "ducks": "./src/ducks"
   }
 }

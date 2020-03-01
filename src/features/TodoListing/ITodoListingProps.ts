@@ -1,5 +1,8 @@
-import { IToDo } from "interfaces/ITodo"
+import { ITodo } from "interfaces/ITodo"
 
 export interface ITodoListingProps {
-	todos: IToDo[]
+	todos: ITodo[]
+	fetchTodos: () => void
+	isLoading: boolean
+	toggleDone: (id: string) => void
 }

@@ -1,5 +1,5 @@
-export interface IToDo {
+import { INewTodo } from "./INewTodo"
+
+export interface ITodo extends INewTodo {
 	id: string
-	done: boolean
-	text: string
 }

@@ -3,6 +3,14 @@ import { TodoListing } from "./TodoListing"
 import { connect } from "react-redux"
 import * as todoDucks from "ducks/todo.duck"
 
-export default connect((state: IBaseState) => ({
-	todos: todoDucks.getTodos(state)
-}))(TodoListing)
+const mapStateToProps = (state: IBaseState) => ({
+	todos: todoDucks.getTodos(state),
+	isLoading: todoDucks.getIsLoading(state)
+})
+
+const mapDispatchToProps = (dispatch: any) => ({
+	fetchTodos: () => dispatch(todoDucks.fetchTodos()),
+	toggleDone: (id: string) => dispatch(todoDucks.toggleDone(id))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(TodoListing)

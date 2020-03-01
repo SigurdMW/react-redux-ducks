@@ -1,6 +1,6 @@
-import { IToDo } from "../interfaces/ITodo"
+import { ITodo } from "../interfaces/ITodo"
 
-export const todos: {[key: string]: IToDo} = {
+export const todos: {[key: string]: ITodo} = {
 	"1": {
 		id: "1",
 		done: false,
