@@ -13,6 +13,11 @@
 		"esModuleInterop": true,
 		"emitDecoratorMetadata": true,
 		"sourceMap": true,
-		"types": ["node"]
-	},
+		"types": ["node"],
+		"baseUrl": "./src",
+		"paths": {
+			"interfaces": ["./src/interfaces"],
+			"ducks": ["./src/ducks"]
+        }
+	}
 }
