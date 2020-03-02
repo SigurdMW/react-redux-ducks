@@ -1,7 +1,7 @@
 import { IBaseState } from "interfaces/"
 import { TodoListing } from "./TodoListing"
 import { connect } from "react-redux"
-import * as todoDucks from "ducks/todo.duck"
+import * as todoDucks from "../todo.duck"
 
 const mapStateToProps = (state: IBaseState) => ({
 	todos: todoDucks.getTodos(state),

@@ -1,6 +1,6 @@
 import { TodoForm } from "./TodoForm"
 import { connect } from "react-redux"
-import * as todoDucks from "ducks/todo.duck"
+import * as todoDucks from "../todo.duck"
 import { INewTodo } from "interfaces/INewTodo"
 
 export default connect(null, (dispatch: any) => ({

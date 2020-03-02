@@ -17,7 +17,9 @@
 		"baseUrl": "./src",
 		"paths": {
 			"interfaces": ["./src/interfaces"],
-			"ducks": ["./src/ducks"]
+			"ducks": ["./src/ducks"],
+			"utils": ["./src/utils"],
+			"features": ["./src/features"]
         }
 	}
 }

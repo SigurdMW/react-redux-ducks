@@ -1,13 +1,13 @@
-import { delay } from "../utils/delay"
-import { todos } from "../utils/data"
+import { delay } from "utils/delay"
+import { todos } from "utils/data"
 import { createAction, handleActions, Action } from "redux-actions"
 import { Dispatch } from "redux"
-import { ITodo, INewTodo, IBaseState, ITodoState } from "interfaces/"
+import { ITodo, INewTodo, IBaseState, ITodoState, IDuckExport } from "interfaces/"
 
 const _ns = "@@todo/"
 export const createNSAction = (action: string, payload?: any) => createAction(_ns+action, payload) as any
 export const getState = (globalState: IBaseState): ITodoState => {
-	return globalState.todos
+	return globalState.todos || {}
 }
 
 // Setters
@@ -18,12 +18,14 @@ export const setDone = createNSAction("SET_DONE")
 
 // Getters
 export const getTodos = (globalState: IBaseState) => {
-	return Object.entries(getState(globalState).byId).map(([key, value]) => value)
+	const state = getState(globalState).byId
+	if (!state || !Object.keys(state).length) return []
+	return Object.entries(state).map(([key, value]) => value)
 }
-export const getIsLoading = (globalState: IBaseState) => getState(globalState).isLoading
+export const getIsLoading = (globalState: IBaseState) => !!getState(globalState).isLoading
 export const getTodo = (globalState: IBaseState, id: string) => {
 	const state = getState(globalState)
-	if (state.byId[id]) {
+	if (state.byId && state.byId[id]) {
 		return state.byId[id]
 	}
 	return null
@@ -84,4 +86,12 @@ export const reducer = handleActions<any, any>({
 	byId: {},
 	isLoading: false
 })
+
+export const duck: IDuckExport = {
+	["todos"]: {
+		reducer
+	}
+}
+
+
 export default reducer

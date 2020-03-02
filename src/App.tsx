@@ -1,25 +1,22 @@
 import React from "react"
 import { Provider } from "react-redux"
-import { configureStore } from "./store"
-import TodoListing from "./features/TodoListing"
-import TodoForm from "./features/TodoForm"
+import { storeManager } from "./store"
+import Routes from "./routes"
+import { BrowserRouter } from "react-router-dom"
+import thunk from "redux-thunk"
 
-// setup store with intial state
-const store = configureStore({
-	todos: {
-		byId: {},
-		isLoading: false
-	}
-})
+// setup store with empty intial state
+storeManager.createStore({})
+storeManager.addMiddleware({
+	thunk
+}) 
 
 export const App = () => {
 	return (
-		<Provider store={store}>
-			<>
-				<h1>Todo duck</h1>
-				<TodoListing />
-				<TodoForm />
-			</>
+		<Provider store={storeManager.store}>
+			<BrowserRouter>
+				<Routes />
+			</BrowserRouter>
 		</Provider>
 	)
 }
