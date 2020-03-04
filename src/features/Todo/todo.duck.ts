@@ -32,7 +32,9 @@ export const getTodo = (globalState: IBaseState, id: string) => {
 }
 
 // Dispatch
-export const fetchTodos = () => async (dispatch: Dispatch) => {
+export const fetchTodos = () => async (dispatch: Dispatch, getGlobalState: () => IBaseState) => {
+	const state = getState(getGlobalState())
+	if(Object.keys(state.byId || {}).length) return
 	dispatch(setIsLoading(true))
 	await delay(1000)
 	dispatch(setTodos(todos))
